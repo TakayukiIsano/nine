@@ -28,6 +28,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:3.0.0'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.0.0'
     implementation('org.springframework.boot:spring-boot-gradle-plugin:3.0.0')
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:3.0.0'
 }
-group = 'com.kodanukiware.first'
+
+bootJar {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+
+group = 'com.kodanukiware'
 version = '0.0.1-SNAPSHOT'
