@@ -29,5 +29,5 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.0.0'
     implementation('org.springframework.boot:spring-boot-gradle-plugin:3.0.0')
 }
-group = 'com.kodanukiware.first'
+group = 'com.kodanukiware.nine'
 version = '0.0.1-SNAPSHOT'
