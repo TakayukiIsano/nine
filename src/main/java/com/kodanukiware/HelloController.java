@@ -4,9 +4,7 @@ import ajd4jp.AJD;
 import ajd4jp.Day;
 import ajd4jp.STCD;
 import ajd4jp.SexagenaryCycle;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,13 +12,18 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
 //Controllerだよ！という注釈
 @RestController
 public class HelloController {
   //RequestMapping "/"→ルートURLにアクセスすると呼び出されるようにできる
   //→アクセスするアドレスごとにメソッドを指定できる!(value="/",method=RequestMethod.GET)
   //ModelとViewを2つとも置ける（返り値にできる）便利なやつ
-  public ModelAndView index(ModelAndView mav) {
+
+	@RequestMapping(path = "/", method = { GET })
+	public ModelAndView index(ModelAndView mav) {
       //ビューネームの設定
       mav.setViewName("index");
       //値（msg）とそれに対する出力文字を設定
@@ -28,7 +31,7 @@ public class HelloController {
       return mav;
   }
 
-  @RequestMapping(value="/",method=RequestMethod.POST)
+	@RequestMapping(path = "/", method = { POST })
   //"name"でPOSTされたパラメータを取得し、それを引数に
   public ModelAndView send(@RequestParam("name")String name,ModelAndView mav) {
 	  String[] temp = name.split("-");
