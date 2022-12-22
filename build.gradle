@@ -18,6 +18,5 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 }
 
-
 group = 'com.kodanukiware.nine'
 version = '0.0.1-SNAPSHOT'
