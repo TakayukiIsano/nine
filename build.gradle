@@ -1,40 +1,23 @@
-buildscript {
-    repositories {
-        maven { url "https://repo.spring.io/milestone" }
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.0.0")
-    }
-}
-
 plugins {
-    id 'org.springframework.boot' version '3.0.0'
     id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version '3.0.0'
     id 'java'
 }
 repositories {
     mavenCentral()
 }
 
-configurations {
-    providedRuntime
-}
-
 dependencies {
     implementation fileTree(dir: 'Libs', include: ['*.jar'])
     implementation fileTree(dir: 'lib', include: ['*.jar'])
-    implementation('org.springframework.boot:spring-boot-autoconfigure:3.0.0')
-    implementation('org.springframework.boot:spring-boot-starter:3.0.0')
-    implementation 'org.springframework.boot:spring-boot-starter-web:3.0.0'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.0.0'
-    implementation('org.springframework.boot:spring-boot-gradle-plugin:3.0.0')
-    implementation 'org.springframework.boot:spring-boot-starter-actuator:3.0.0'
-}
-
-bootJar {
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    implementation('org.springframework.boot:spring-boot-autoconfigure')
+    implementation('org.springframework.boot:spring-boot-starter')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-gradle-plugin:3.0.0'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 }
 
 
-group = 'com.kodanukiware'
+group = 'com.kodanukiware.nine'
 version = '0.0.1-SNAPSHOT'
