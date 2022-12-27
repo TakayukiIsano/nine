@@ -20,10 +20,3 @@ dependencies {
 
 group = 'com.kodanukiware.nine'
 version = '0.0.1-SNAPSHOT'
-
-
-java {
-    toolchain {
-        JavaLanguageVersion.of(11)
-    }
-}
