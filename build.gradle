@@ -1,6 +1,6 @@
 plugins {
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'org.springframework.boot' version '2.1.18.RELEASE'
     id 'java'
 }
 repositories {
@@ -19,9 +19,3 @@ dependencies {
 
 group = 'com.kodanukiware.nine'
 version = '0.0.1-SNAPSHOT'
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(11)
-    }
-}
