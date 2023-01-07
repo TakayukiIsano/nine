@@ -4,7 +4,8 @@ import ajd4jp.AJD;
 import ajd4jp.Day;
 import ajd4jp.STCD;
 import ajd4jp.SexagenaryCycle;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,8 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 //Controllerだよ！という注釈
 @RestController
@@ -22,7 +21,7 @@ public class HelloController {
   //→アクセスするアドレスごとにメソッドを指定できる!(value="/",method=RequestMethod.GET)
   //ModelとViewを2つとも置ける（返り値にできる）便利なやつ
 
-	@RequestMapping(path = "/", method = { GET })
+	@GetMapping
 	public ModelAndView index(ModelAndView mav) {
       //ビューネームの設定
       mav.setViewName("index");
@@ -31,14 +30,14 @@ public class HelloController {
       return mav;
   }
 
-	@RequestMapping(path = "/", method = { POST })
+	@PostMapping
   //"name"でPOSTされたパラメータを取得し、それを引数に
   public ModelAndView send(@RequestParam("name")String name,ModelAndView mav) {
 	  String[] temp = name.split("-");
 	  int year = Integer.parseInt(temp[0]);
 	  int month = Integer.parseInt(temp[1]);
 	  int day = Integer.parseInt(temp[2]);
-	  AJD ajd = new AJD( year, month, day, 1, 0, 0 );							// 通常の暦
+	  AJD ajd = new AJD(year, month, day,00,00,00);							// 通常の暦
 	  //LSCD lscd = LunisolarYear.getLunisolarYear( ajd ).getLSCD( ajd );	// 旧暦
       STCD stcd = new STCD( ajd );										// 節切り
 	  mav.setViewName("index");

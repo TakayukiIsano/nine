@@ -8,7 +8,7 @@
     <body>
         <!-- th:textはThymeleafでtextという指定、${}は変数 -->
         <form action="/" method="post">
-        <input type="date" name="name" th:value="${value}" >
+        <input name="name" required=required th:value="${value}" type="date" >
         <input type="submit" value="Click">
         <p th:text="${msg}">please wait...</p>
     
